@@ -1,0 +1,23 @@
+{
+  "name": "todolistapp",
+  "version": "1.0.0",
+  "description": "Simple To-Do-List App",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeBrayC/todolistapp.git"
+  },
+  "author": "DeBray Carpenter & Najee Amaranth",
+  "license": "unlicensed",
+  "bugs": {
+    "url": "https://github.com/DeBrayC/todolistapp/issues"
+  },
+  "homepage": "https://github.com/DeBrayC/todolistapp#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
