@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-<link rel="stylesheet" type="text/css" href="../src/views/index.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript" src="/amplitudejs/js/amplitude.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
     <title>To-Do-List App</title>
   </head>
   <body>
     <div class="navbar">
-      <a href="#home">Home</a>
-      <a href="#completed.html">Completed Tasks</a>
+      <a href="index.html">Home</a>
+      <a href="completed.html">Completed Tasks</a>
     </div>
-    <br></br>
+
+    <div id="todos"></div>
+    <hr>
     <table style="width:80%" class="table">
   <tr>
     <th>index #</th>
@@ -26,7 +32,31 @@
       <td>2</td>
       <td>Take out the trash</td>
       <td>DON'T FORGET</td>
+      <tr>
+        <form>
+          <td></td>
+      task:<td>
+      <input type="text" name="task"></td>
+      notes:<td>
+      <input type="text" name="notes"><input type="submit" value="Submit"></td>
+
+    </form>
+      </tr>
 </table>
+<div class="button">
+
+</div>
+</div>
   </body>
-  <div class="footer"></div>
+  <div class="footer"><div id="player">
+        <div id="player-top">
+            <div id="amplitude-play-pause" class="amplitude-paused"></div>
+
+        </div>
+    </div>
+    <button type="button" name="button" onclick="play()"></button>
+    <div id="songPlay" onclick="play(1)"></div>
+    <audio id="1" amplitude-artist="Ms Incredible ft. Fly Benzo" amplitude-title="Every Single Day" amplitude-album="Alchemical Process" amplitude-album-art-url="/Users/debraycarpenter/Documents/newMusicApp/images/everysingleday.jpg" amplitude-audio-type=“song”>
+      <source src="/Users/debraycarpenter/Documents/newMusicApp/music/everysingleday.mp3" type="audio/mp3"/>
+    </audio>
 </html>
