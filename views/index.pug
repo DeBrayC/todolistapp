@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    style
+      include index.css
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    title To-Do-List App
+    script(src="/amplitudejs/js/amplitude.js")
+    script(src="/index.js")
+    script(type='text/javascript').
+  Amplitude.init({
+  "dynamic_mode": true
+  })
+
+  body
+    .navbar
+      a(href='/') Home
+      a(href='/completedtasks') Completed
+
+
+
+
+    #todos
+    hr
+    table.table(style='width:80%')
+      tr
+        th index #
+        th Assignment
+        th Notes
+      tr
+        td stuff
+        td #{name}
+      tr
+        form
+          td
+          |       task:
+          td
+            input(type='text', name='task')
+          |       notes:
+          td
+            input(type='text', name='notes')
+            input(type='submit', value='Submit')
+    .button
+  .footer
+    table.table(style='width:30%', id=body)
+      tr
+        td
+        #player
+        #player-top
+        #amplitude-play-pause.amplitude-paused
+        button(type='button', name='button', onclick='play()')
+        #songPlay(onclick='play(1)')
+      tr
+        input.amplitude-song-slider(type='range', amplitude-singular-song-slider='true', value='0')
+
+
+        audio#1(amplitude-artist='Ms Incredible ft. Fly Benzo', amplitude-title='Every Single Day', amplitude-album='Alchemical Process', amplitude-album-art-url='/Users/debraycarpenter/Documents/newMusicApp/images/everysingleday.jpg', amplitude-audio-type='“song”')
+          source(src='/songs/everysingleday.mp3', type='audio/mp3')
