@@ -26,7 +26,21 @@ const getAll = (request, response) => {
       return (err);
     })
 }
-
+const getSongs = (request, response) => {
+  db.any('select * from songs')
+    .then(data => {
+      response.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ALL songs'
+        })
+    })
+    .catch(err => {
+      return (err);
+    })
+}
 module.exports = {
-  getAll: getAll
+  getAll: getAll,
+  getSongs: getSongs
 }

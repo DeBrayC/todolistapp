@@ -15,10 +15,12 @@ app.get('/completedtasks', (request, response) => {
 
 app.get('/tasks', db.getAll);
 
-app.use(express.static(path.join(__dirname , 'public')))
+app.get('/songs', db.getSongs);
 
+
+app.use(express.static(path.join(__dirname , 'public')))
 app.use((err, request, response) => {
   console.log(err);
-  response.status(500).send('Something broke')
+  // response.status(500).send('Something broke')
 })
 app.listen(3000)
