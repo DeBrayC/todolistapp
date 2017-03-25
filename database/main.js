@@ -1,46 +1,29 @@
 const pgp = require('pg-promise')();
 const connectionString = 'postgres://localhost:5432/todo';
 const db = pgp(connectionString);
-// const songs = (request, response, next) => {
-//   db.any('select * from songs')
-//     .then(data => {
-//       response.status(200)
-//         .json({
-//           status: 'success',
-//           data: data,
-//           message: 'Retrieved ALL songs'
-//         })
-//     })
-// }
-const getAll = (request, response) => {
-  db.any('select * from tasks')
-    .then(data => {
-      response.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL tasks'
-        })
-    })
-    .catch(err => {
-      return (err);
-    })
+
+const getAllTasks = () => {
+  return db.any('select * from tasks')
 }
-const getSongs = (request, response) => {
-  db.any('select * from songs')
-    .then(data => {
-      response.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL songs'
-        })
-    })
-    .catch(err => {
-      return (err);
-    })
+
+const addTask = (assignment, notes) => {
+  return db.none(`insert into tasks (assignment, notes) values ( '${assignment}', '${notes}')`)
+}
+
+const updateTask = (id, assignment, notes, iscomplete) => {
+  return db.none(`UPDATE tasks SET assignment='${assignment}', notes='${notes}', iscomplete='${iscomplete}' WHERE id=${id}`)
+}
+
+const deleteTask = id => {
+  return db.none(`DELETE FROM tasks WHERE id=${id}`)
+}
+const getSongs = () => {
+  return db.any('select * from songs')
 }
 module.exports = {
-  getAll: getAll,
+  getAllTasks: getAllTasks,
+  addTask: addTask,
+  updateTask: updateTask,
+  deleteTask: deleteTask,
   getSongs: getSongs
 }

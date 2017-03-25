@@ -8,7 +8,7 @@ CREATE TABLE tasks (
   ID SERIAL PRIMARY KEY,
   assignment VARCHAR,
   notes VARCHAR,
-  iscomplete BOOLEAN
+  iscomplete BOOLEAN DEFAULT false
 );
 
 DROP TABLE IF EXISTS songs;
